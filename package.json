@@ -1,0 +1,30 @@
+{
+  "name": "quickstartcss",
+  "version": "0.0.2",
+  "description": "A simple plug and play solution against websites which are looking like complete garbage.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrvinrsk/QuickstartCSS.git"
+  },
+  "keywords": [
+    "css",
+    "design",
+    "frontend",
+    "front-end",
+    "mrvinrsk",
+    "quickstart",
+    "ui",
+    "ux",
+    "ui/ux"
+  ],
+  "author": "mrvinrsk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrvinrsk/QuickstartCSS/issues"
+  },
+  "homepage": "https://github.com/mrvinrsk/QuickstartCSS#readme"
+}

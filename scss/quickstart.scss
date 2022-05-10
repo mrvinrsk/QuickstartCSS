@@ -1,0 +1,158 @@
+@font-face {
+  font-family: 'Nunito';
+  src: url('../fonts/Nunito/Nunito-VariableFont_wght.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('../fonts/Nunito/Nunito-Italic-VariableFont_wght.ttf') format('truetype');
+  font-style: italic;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  color: #202020;
+}
+
+h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 52px;
+  line-height: 56px;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 44px;
+}
+
+h3 {
+  font-size: 32px;
+  line-height: 36px;
+}
+
+h4 {
+  font-size: 24px;
+  line-height: 28px;
+}
+
+h5 {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+h6 {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+
+main {
+  width: calc(min(85%, 50rem));
+  margin-inline: auto;
+  margin-block: calc(min(5%, 7.5rem));
+}
+
+ul, ol {
+  list-style-position: inside;
+}
+
+blockquote {
+  padding: .5em;
+  padding-left: 1em;
+
+  border-left: 2px solid #D3D3D3;
+  font-style: italic;
+}
+
+button, input[type=submit], input[type=button] {
+  cursor: pointer;
+  border-radius: 2px;
+  border: none;
+  background-color: #D3D3D3;
+  color: #202020;
+  padding: .5em 1.8em;
+  outline: none;
+  transition-duration: .25s;
+
+  &:hover {
+    background-color: #202020;
+    color: #D3D3D3;
+    transform: translateY(-3px);
+    box-shadow: 0 3px 15px rgba(0 0 0 / 10%);
+  }
+}
+
+a {
+  position: relative;
+  color: #1a9ca8;
+
+  &:visited {
+    color: #532abd;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  text-align: left;
+
+  th, td {
+    padding: .5em .25em;
+  }
+
+  thead {
+    border-bottom: 1px solid #202020;
+    background-color: #F5F5F5;
+  }
+
+  tbody {
+
+  }
+}
+
+form {
+  border: 1px solid #d9d9d9;
+  padding: 1em;
+  border-radius: 5px;
+
+  label + input, label + textarea, label + select {
+    margin-top: .175em;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: calc((1em + (.5em * 2)) * 2.5);
+    height: calc((1em + (.5em * 2)) * 2.5);
+    max-height: calc((1em + (.5em * 2)) * 15);
+  }
+
+  input, textarea, select {
+    display: block;
+    width: 100%;
+    border: 1px solid #ababab;
+    border-radius: 5px;
+    padding: .5em .75em;
+
+    &:not(:last-child) {
+      margin-bottom: .75em;
+    }
+  }
+
+  input[type=submit], button {
+    display: flex;
+    margin-top: 1.25em;
+    margin-left: auto;
+    padding: .75em 2.5em;
+  }
+}

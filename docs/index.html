@@ -12,7 +12,7 @@
         main {
             display: flex;
             flex-direction: column;
-            gap: 3.5rem;
+            gap: 7.5rem;
         }
 
         .spacing {
@@ -27,7 +27,7 @@
                 flex-wrap: wrap;
                 justify-content: flex-start;
                 align-items: center;
-                gap: 1.25rem;
+                gap: 2.5rem;
             }
 
             .spacebetween {
@@ -35,19 +35,30 @@
             }
         }
 
-        .content h4 {
-            margin-bottom: .5rem;
+        .content .header {
+            margin-bottom: 1rem;
+        }
+
+        .hov {
+            color: #888;
+            cursor: pointer;
+            font-size: 75%;
+            padding-left: .5em;
+        }
+
+        .hov:hover {
+            color: #343434;
         }
 
         aside {
             display: none;
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 1280px) {
             aside {
                 display: block;
                 position: fixed;
-                background: #efefef;
+                background: #F9F9F9;
                 margin-left: 5em;
                 border-radius: 10px;
                 overflow: hidden;
@@ -79,24 +90,66 @@
             aside ul a:visited {
                 color: inherit;
             }
+
+            .content-link {
+                border-right: 2px solid transparent;
+                transition-duration: .15s;
+            }
+
+            .content-link.active {
+                border-right: 2px solid #202020;
+            }
+        }
+
+
+        /* Toasts */
+        .toast_wrapper {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
+            row-gap: .5rem;
+        }
+
+        @media only screen and (min-width: 768px) {
+            .toast_wrapper {
+                right: 15px;
+                bottom: 15px;
+                width: 35vw;
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+            .toast_wrapper {
+                right: 1rem;
+                bottom: 1rem;
+                width: 500px;
+            }
+        }
+
+        .toast {
+            background: #FFF;
+            position: relative;
+            width: 100%;
+            border-radius: 5px;
+            padding: .75rem;
+            color: #343434;
+            border: 1px solid #343434;
+
+            display: flex;
+            flex-direction: column;
+            row-gap: .35rem;
         }
     </style>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 
-    <script>
-        $(function () {
-            let aside = document.querySelector('aside ul');
-            document.querySelectorAll('div.content').forEach((content) => {
-                if (content.id !== null) {
-                    if (!content.id.startsWith('noaside_')) {
-                        let heading = content.querySelector('h4');
-                        aside.innerHTML += `<li><a href="#${content.id}">${heading.innerText}</a></li>`;
-                    }
-                }
-            });
-        });
-    </script>
+    <script src="../js/quickstart.js"></script> <!-- Local -->
+    <script src="https://raw.githubusercontent.com/mrvinrsk/QuickstartCSS/framework/js/quickstart.js"></script> <!-- GH -->
 </head>
 <body>
 
@@ -105,8 +158,25 @@
 </aside>
 
 <main>
+    <div class="content">
+        <h2>Getting started</h2>
+        <p>
+            To get started with <b>QuickstartCSS</b> you need to install <a href="https://nodejs.org/en/">NodeJS</a>, to be able
+            to use the npm command, if you haven't already. When you have NodeJS installed, you can simply run the following command:
+        </p>
+
+        <pre style="margin-top: .5em;"><code>npm i quickstartcss</code></pre>
+
+        <p style="margin-top: .5em;" id="js-notice">While reading this documentation you may notice that some styles need JavaScript to work. If so include jQuery by adding:</p>
+        <pre style="margin-top: .5em;"><code>&lt;script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"&gt;&lt;/script&gt;</code></pre>
+
+        <p style="margin-top: .5em;">to your html &lt;head&gt;, followed by the same tag with the <i>quickstart.js</i> file as src attribute.</p>
+    </div>
+
     <div class="content" id="headings">
-        <h4>Headings</h4>
+        <div class="header">
+            <h4>Headings</h4>
+        </div>
 
         <div class="spacing row">
             <div>
@@ -142,28 +212,39 @@
     </div>
 
     <div class="content" id="paragraphs">
-        <h4>Paragraphs</h4>
+        <div class="header">
+            <h4>Paragraphs</h4>
+        </div>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
     </div>
 
-    <div class="content" id="blockquotes">
-        <h4>Blockquotes</h4>
-        <blockquote cite="Marvin, cool developer">
-            <p>This is a text with no sense. It is just here to be a demo for the styling.</p>
-        </blockquote>
+    <div class="content" id="links">
+        <div class="header">
+            <h4>Links</h4>
+        </div>
+        <div class="spacing">
+            <div>
+                <p>This is a text with a <a href="#links">link</a>.</p>
+                <p>Another text without link.</p>
+            </div>
+        </div>
     </div>
 
     <div class="content" id="buttons">
-        <h4>Buttons</h4>
+        <div class="header">
+            <h4>Buttons</h4>
+        </div>
         <div class="spacing" style="flex-direction: row;">
             <button>Button</button>
         </div>
     </div>
 
     <div class="content" id="lists">
-        <h4>Lists</h4>
+        <div class="header">
+            <h4>Lists</h4>
+        </div>
         <div class="spacing row spacebetween">
             <ul>
                 <li>List item 1</li>
@@ -179,8 +260,10 @@
         </div>
     </div>
 
-    <div class="content" id="tables">
-        <h4>Tables</h4>
+    <div class="content" id="tables" data-js="Horizontal Scrolling">
+        <div class="header">
+            <h4>Tables</h4>
+        </div>
         <div class="spacing">
             <table>
                 <thead>
@@ -188,6 +271,8 @@
                     <th>Heading 1</th>
                     <th>Heading 2</th>
                     <th>Heading 3</th>
+                    <th>Heading 4</th>
+                    <th>Heading 5</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -195,24 +280,41 @@
                     <td>Cell 1</td>
                     <td>Cell 2</td>
                     <td>Cell 3</td>
+                    <td>Cell 4</td>
+                    <td>Cell 5</td>
                 </tr>
                 <tr>
                     <td>Cell 1</td>
                     <td>Cell 2</td>
                     <td>Cell 3</td>
+                    <td>Cell 4</td>
+                    <td>Cell 5</td>
                 </tr>
                 <tr>
                     <td>Cell 1</td>
                     <td>Cell 2</td>
                     <td>Cell 3</td>
+                    <td>Cell 4</td>
+                    <td>Cell 5</td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
+    <div class="content" id="images" data-comment="Images will take 100% of available space inside their parent element by default.">
+        <div class="header">
+            <h4>Images</h4>
+        </div>
+        <div class="spacing">
+            <img src="https://via.placeholder.com/300x200" alt="Placeholder image">
+        </div>
+    </div>
+
     <div class="content" id="forms">
-        <h4>Forms</h4>
+        <div class="header">
+            <h4>Forms</h4>
+        </div>
         <div class="spacing">
             <form>
                 <label for="name">Name</label>
@@ -229,19 +331,18 @@
         </div>
     </div>
 
-    <div class="content" id="links">
-        <h4>Links</h4>
-        <div class="spacing">
-            <p>This is a text with a <a href="#links">link</a>.</p>
-            <p>Another text without link.</p>
+    <div class="content" id="blockquotes">
+        <div class="header">
+            <h4>Blockquotes</h4>
         </div>
-    </div>
-
-    <div class="content" id="images">
-        <h4>Images</h4>
-        <div class="spacing">
-            <img src="https://via.placeholder.com/300x200" alt="Placeholder image">
-        </div>
+        <blockquote cite="Marvin, cool developer">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                et dolore magna aliqua. Sed ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                Cursus metus aliquam eleifend mi in nulla posuere sollicitudin aliquam. Et netus et malesuada fames
+                ac turpis egestas maecenas. Sit amet cursus sit amet.
+            </p>
+        </blockquote>
     </div>
 
 </main>

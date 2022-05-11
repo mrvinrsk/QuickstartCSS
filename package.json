@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/mrvinrsk/QuickstartCSS/issues"
   },
-  "homepage": "https://github.com/mrvinrsk/QuickstartCSS#readme"
+  "homepage": "https://github.com/mrvinrsk/QuickstartCSS#readme",
+  "devDependencies": {
+    "@types/jquery": "^3.5.14"
+  }
 }

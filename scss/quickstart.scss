@@ -1,3 +1,7 @@
+$bp-tablet: 640px;
+$bp-desktop: 1024px;
+$bp-hd: 1280px;
+
 @font-face {
   font-family: 'Nunito';
   src: url('../fonts/Nunito/Nunito-VariableFont_wght.ttf') format('truetype');
@@ -74,9 +78,12 @@ ul, ol {
 blockquote {
   padding: .5em;
   padding-left: 1em;
+  background-color: #F9F9F9;
+  border-radius: 3px;
 
   border-left: 2px solid #D3D3D3;
   font-style: italic;
+  color: #777;
 }
 
 button, input[type=submit], input[type=button] {
@@ -106,6 +113,12 @@ a {
   }
 }
 
+div:has(> table) {
+  color: red;
+  font-size: 2em;
+  background-color: green;
+}
+
 table {
   border-collapse: collapse;
   text-align: left;
@@ -116,11 +129,11 @@ table {
 
   thead {
     border-bottom: 1px solid #202020;
-    background-color: #F5F5F5;
+    background-color: #F9F9F9;
   }
 
   tbody {
-
+    background-color: #F3F3F3;
   }
 }
 
@@ -145,11 +158,29 @@ form {
     width: 100%;
     border: 1px solid #ababab;
     border-radius: 5px;
-    padding: .5em .75em;
+    padding: .75em 1em;
+    outline: none;
+
+    @media only screen and (min-width: $bp-desktop) {
+      padding: 1em 1.5em;
+    }
 
     &:not(:last-child) {
       margin-bottom: .75em;
     }
+
+    &:focus {
+      border-color: #202020;
+      box-shadow: inset 1px 1px 3.5px rgba(0 0 0 / 10%);
+    }
+  }
+
+  input, select {
+    transition-duration: .175s;
+  }
+
+  textarea {
+    transition: box-shadow .175s, border .175s, padding .175s;
   }
 
   input[type=submit], button {
@@ -158,4 +189,30 @@ form {
     margin-left: auto;
     padding: .75em 2.5em;
   }
+}
+
+pre code {
+  display: block;
+  font-family: monospace;
+  border-radius: .5em;
+  background: #EFEFEF;
+  padding: 1em;
+  overflow: auto;
+  max-height: 25vh;
+
+  @media only screen and (min-width: $bp-tablet) {
+    padding: 1.25em;
+  }
+}
+
+
+/* JS Things */
+.qscss_table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  white-space: nowrap;
 }

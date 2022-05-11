@@ -1,6 +1,6 @@
 {
   "name": "quickstartcss",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A simple plug and play solution against websites which are looking like complete garbage.",
   "main": "index.js",
   "scripts": {

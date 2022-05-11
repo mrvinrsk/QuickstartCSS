@@ -58,9 +58,12 @@ h6 {
 }
 
 
-main {
+main, .complete-wrapper {
   width: calc(min(85%, 50rem));
   margin-inline: auto;
+}
+
+main, .wrapper, .complete-wrapper {
   margin-block: calc(min(5%, 7.5rem));
 }
 

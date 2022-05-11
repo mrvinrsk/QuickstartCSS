@@ -21,18 +21,94 @@
             gap: .75rem;
         }
 
+        @media only screen and (min-width: 768px) {
+            .row {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 1.25rem;
+            }
+
+            .spacebetween {
+                justify-content: space-between;
+            }
+        }
+
         .content h4 {
             margin-bottom: .5rem;
         }
+
+        aside {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            aside {
+                display: block;
+                position: fixed;
+                background: #efefef;
+                margin-left: 5em;
+                border-radius: 10px;
+                overflow: hidden;
+                max-height: 70vh;
+                overflow-y: auto;
+            }
+
+            aside ul {
+                display: flex;
+                flex-direction: column;
+                list-style-type: none;
+            }
+
+            aside a {
+                text-decoration: none;
+                display: block;
+                padding: .75rem 1.25rem;
+                color: inherit;
+            }
+
+            aside ul li:hover {
+                background: #202020;
+            }
+
+            aside ul li:hover a {
+                color: #D3D3D3;
+            }
+
+            aside ul a:visited {
+                color: inherit;
+            }
+        }
     </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script>
+        $(function () {
+            let aside = document.querySelector('aside ul');
+            document.querySelectorAll('div.content').forEach((content) => {
+                if (content.id !== null) {
+                    if (!content.id.startsWith('noaside_')) {
+                        let heading = content.querySelector('h4');
+                        aside.innerHTML += `<li><a href="#${content.id}">${heading.innerText}</a></li>`;
+                    }
+                }
+            });
+        });
+    </script>
 </head>
 <body>
 
+<aside>
+    <ul></ul>
+</aside>
+
 <main>
-    <div class="content">
+    <div class="content" id="headings">
         <h4>Headings</h4>
 
-        <div class="spacing">
+        <div class="spacing row">
             <div>
                 <h2>Heading 1</h2>
                 <p>This is a test paragraph.</p>
@@ -65,30 +141,30 @@
         </div>
     </div>
 
-    <div class="content">
+    <div class="content" id="paragraphs">
         <h4>Paragraphs</h4>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
     </div>
 
-    <div class="content">
+    <div class="content" id="blockquotes">
         <h4>Blockquotes</h4>
         <blockquote cite="Marvin, cool developer">
             <p>This is a text with no sense. It is just here to be a demo for the styling.</p>
         </blockquote>
     </div>
 
-    <div class="content">
+    <div class="content" id="buttons">
         <h4>Buttons</h4>
         <div class="spacing" style="flex-direction: row;">
             <button>Button</button>
         </div>
     </div>
 
-    <div class="content">
+    <div class="content" id="lists">
         <h4>Lists</h4>
-        <div class="spacing">
+        <div class="spacing row spacebetween">
             <ul>
                 <li>List item 1</li>
                 <li>List item 2</li>
@@ -103,7 +179,7 @@
         </div>
     </div>
 
-    <div class="content">
+    <div class="content" id="tables">
         <h4>Tables</h4>
         <div class="spacing">
             <table>
@@ -135,7 +211,7 @@
         </div>
     </div>
 
-    <div class="content">
+    <div class="content" id="forms">
         <h4>Forms</h4>
         <div class="spacing">
             <form>
@@ -161,7 +237,7 @@
         </div>
     </div>
 
-    <div class="content">
+    <div class="content" id="images">
         <h4>Images</h4>
         <div class="spacing">
             <img src="https://via.placeholder.com/300x200" alt="Placeholder image">

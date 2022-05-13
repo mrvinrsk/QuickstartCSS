@@ -86,7 +86,7 @@ blockquote {
   color: #777;
 }
 
-button, input[type=submit], input[type=button] {
+button:not(.ext-btn), input[type=submit], input[type=button] {
   cursor: pointer;
   border-radius: 2px;
   border: none;
@@ -103,6 +103,8 @@ button, input[type=submit], input[type=button] {
     box-shadow: 0 3px 15px rgba(0 0 0 / 10%);
   }
 }
+
+
 
 a {
   position: relative;

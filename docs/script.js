@@ -1,4 +1,5 @@
 $(function () {
+    /* Sidenav */
     let aside = document.querySelector('aside ul');
     document.querySelectorAll('div.content').forEach((content) => {
         if (content.id !== null && content.id !== '') {
@@ -6,6 +7,11 @@ $(function () {
                 let heading = content.querySelector('h4');
                 aside.innerHTML += `<li class="content-link"><a href="#${content.id}">${heading.innerText}</a></li>`;
             }
+        }
+
+        // check if content is the last one
+        if (content.nextElementSibling !== null) {
+            content.outerHTML += '<hr/>';
         }
     });
 
@@ -59,6 +65,7 @@ $(function () {
         document.querySelectorAll('.content-link').forEach((link) => {
             if ($(link.querySelector('a').hash).isInViewport()) {
                 link.classList.add('active');
+
             } else {
                 link.classList.remove('active');
             }

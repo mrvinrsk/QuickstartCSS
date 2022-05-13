@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Quickstart Documentation</title>
 
@@ -12,7 +13,14 @@
         main {
             display: flex;
             flex-direction: column;
-            gap: 7.5rem;
+            gap: 3rem;
+        }
+
+        #gettingstarted-content {
+            display: flex;
+            flex-direction: column;
+            gap: .75em;
+            margin-top: .5rem;
         }
 
         .spacing {
@@ -63,7 +71,8 @@
             aside {
                 display: block;
                 position: fixed;
-                background: #F9F9F9;
+                /*background: #F9F9F9;*/
+                border: 1px solid #dedede;
                 margin-left: 5em;
                 border-radius: 10px;
                 overflow: hidden;
@@ -98,7 +107,6 @@
 
             .content-link {
                 border-right: 2px solid transparent;
-                transition-duration: .15s;
             }
 
             .content-link.active {
@@ -119,15 +127,32 @@
             row-gap: .5rem;
         }
 
+        .toast {
+            background: #FFF;
+            position: relative;
+            width: 100%;
+            padding: .75rem;
+            color: #343434;
+            border-top: 1px solid #dedede;
+            display: flex;
+            flex-direction: column;
+            row-gap: .35rem;
+        }
+
         @media only screen and (min-width: 768px) {
             .toast_wrapper {
                 right: 15px;
                 bottom: 15px;
                 width: 35vw;
             }
+
+            .toast {
+                border-radius: 5px;
+                border: 1px solid #dedede;
+            }
         }
 
-        @media only screen and (min-width: 768px) {
+        @media only screen and (min-width: 1280px) {
             .toast_wrapper {
                 right: 1rem;
                 bottom: 1rem;
@@ -135,26 +160,20 @@
             }
         }
 
-        .toast {
-            background: #FFF;
-            position: relative;
-            width: 100%;
-            border-radius: 5px;
-            padding: .75rem;
-            color: #343434;
-            border: 1px solid #343434;
-
-            display: flex;
-            flex-direction: column;
-            row-gap: .35rem;
+        hr {
+            height: 1px;
+            background-color: #dedede;
+            border: none;
         }
     </style>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 
     <script src="../js/quickstart.js"></script> <!-- Local -->
-    <script src="https://raw.githubusercontent.com/mrvinrsk/QuickstartCSS/framework/js/quickstart.js"></script> <!-- GH -->
+    <script src="https://raw.githubusercontent.com/mrvinrsk/QuickstartCSS/framework/js/quickstart.js"></script>
+    <!-- GH -->
 </head>
 <body>
 
@@ -165,17 +184,29 @@
 <main>
     <div class="content">
         <h2>Getting started</h2>
-        <p>
-            To get started with <b>QuickstartCSS</b> you need to install <a href="https://nodejs.org/en/">NodeJS</a>, to be able
-            to use the npm command, if you haven't already. When you have NodeJS installed, you can simply run the following command:
-        </p>
 
-        <pre style="margin-top: .5em;"><code>npm i quickstartcss</code></pre>
+        <div id="gettingstarted-content">
+            <p>
+                To get started with <b>QuickstartCSS</b> you need to install <a href="https://nodejs.org/en/">NodeJS</a>,
+                to
+                be able
+                to use the npm command, if you haven't already. When you have NodeJS installed, you can simply run the
+                following command in the terminal of your IDE (how to open the terminal in <a
+                    href="https://code.visualstudio.com/docs/editor/integrated-terminal" target="_blank">VS Code</a>, <a
+                    href="https://www.jetbrains.com/help/phpstorm/terminal-emulator.html#open-terminal" target="_blank">JetBrains
+                IDEs</a>):
+            </p>
 
-        <p style="margin-top: .5em;" id="js-notice">While reading this documentation you may notice that some styles need JavaScript to work. If so include jQuery by adding:</p>
-        <pre style="margin-top: .5em;"><code>&lt;script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"&gt;&lt;/script&gt;</code></pre>
+            <pre><code>npm i quickstartcss</code></pre>
 
-        <p style="margin-top: .5em;">to your html &lt;head&gt;, followed by the same tag with the <i>quickstart.js</i> file as src attribute.</p>
+            <p id="js-notice">While reading this documentation you may notice that some styles
+                need JavaScript to work. If so include jQuery by adding:</p>
+            <pre><code>&lt;script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"&gt;&lt;/script&gt;</code></pre>
+
+            <p>to your html &lt;head&gt;, followed by the same tag with the
+                <i>quickstart.js</i>
+                file as src attribute.</p>
+        </div>
     </div>
 
     <div class="content" id="headings">
@@ -221,7 +252,11 @@
             <h4>Paragraphs</h4>
         </div>
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
         </p>
     </div>
 
@@ -307,7 +342,8 @@
         </div>
     </div>
 
-    <div class="content" id="images" data-comment="Images will take 100% of available space inside their parent element by default.">
+    <div class="content" id="images"
+         data-comment="Images will take 100% of available space inside their parent element by default.">
         <div class="header">
             <h4>Images</h4>
         </div>
